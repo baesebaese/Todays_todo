@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<div layout:fragment="content">
+  <h1>할 일 등록 페이지</h1>
+
+  <form role="form" method="post" enctype="multipart/form-data" th:object="${taskFormDto}">
+
+    <div class = "input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">할 일</span>
+      </div>
+      <input type="text" th:field="*{taskNm}" class="form-control" placeholder="할 일을 입력해주세요">
+
+    </div>
+
+  </form>
+
+</div>
+</html>
