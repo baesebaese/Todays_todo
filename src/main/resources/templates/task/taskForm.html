@@ -2,21 +2,21 @@
 <html xmlns:th="http:/www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout1}">
+<head>
+  <link th:href="@{/css/taskForm.css}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,1,0" />
+</head>
 
-<div layout:fragment="content">
-  <h1>할 일 등록 페이지</h1>
-
+<div layout:fragment="content" class="inputForm">
   <form role="form" method="post" enctype="multipart/form-data" th:object="${taskFormDto}">
-
-    <div class = "input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">할 일</span>
-      </div>
-      <input type="text" th:field="*{taskNm}" class="form-control" placeholder="할 일을 입력해주세요">
-
-    </div>
-
+      <p class="modal_title">새로운 할 일 추가하기</p>
+      <input type="text" th:field="*{taskNm}" class="form-control" placeholder="할 일을 입력 해주세요">
+      <button type="button">취소</button>
+      <button type="submit">확인</button>
   </form>
-
 </div>
+
 </html>
