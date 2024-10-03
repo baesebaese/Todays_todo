@@ -20,9 +20,6 @@ public class Toto {
     @Column(name="toto_nm", nullable = false, length = 100)
     private String totoNm; // 리스트 이름
 
-//    @ManyToOne
-//    @JoinColumn(name="task_id")
-//    private Task task;
 
     public int getTotoNo() {
         return totoNo;
@@ -40,11 +37,4 @@ public class Toto {
         this.totoNm = totoNm;
     }
 
-    public Task getTask() {
-        return task;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
 }

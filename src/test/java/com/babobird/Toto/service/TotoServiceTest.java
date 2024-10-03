@@ -30,7 +30,6 @@ class TotoServiceTest {
         todos.forEach(todo -> {
             System.out.println("Todo ID: " + todo.getTotoNo());
             System.out.println("Todo Name: " + todo.getTotoNm());
-            System.out.println("Task ID: " + todo.getTask().getTaskNo());
             System.out.println("--------------------------");
         });
 
