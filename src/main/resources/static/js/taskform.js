@@ -1,11 +1,11 @@
   function submitValue() {
     const inputBox = document.getElementById("inputBox");
-    const InputValue = inputBox.value;
+    const inputValue = inputBox.value;
 
-    if (InputValue.includes('*')) {
+    if (inputValue.includes('*')) {
       alert("특수문자 금지!")
     }
-    else if (InputValue == '') {
+    else if (inputValue == '') {
       alert("빈값은 안 돼요")
     }
     else {
