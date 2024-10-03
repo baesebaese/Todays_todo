@@ -24,4 +24,27 @@ public class Toto {
 //    @JoinColumn(name="task_id")
 //    private Task task;
 
+    public int getTotoNo() {
+        return totoNo;
+    }
+
+    public void setTotoNo(int totoNo) {
+        this.totoNo = totoNo;
+    }
+
+    public String getTotoNm() {
+        return totoNm;
+    }
+
+    public void setTotoNm(String totoNm) {
+        this.totoNm = totoNm;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 }

@@ -46,10 +46,10 @@ class TaskRepositoryTest {
     @DisplayName("할 일 조회 테스트")
     public void findByTaskNoTest() {
         this.createTaskList();
-        List<Task> taskList = taskRepository.findByTaskNo(1);
-        for(Task task : taskList) {
-            System.out.println(task.toString());
-        }
+        Task task = taskRepository.findByTaskNo(1);
+
+        System.out.println(task.toString());
+
     }
 
 }

@@ -1,5 +1,6 @@
 package com.babobird.Toto.entity;
 
+import com.babobird.Toto.dto.TaskFormDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class Task {
+public class Task{
 
     @Id
     @Column(name = "task_no")
@@ -31,5 +32,10 @@ public class Task {
     @Column(name = "modify_dt")
     private LocalDateTime modifyDt; // 수정일
 
-
+    public void updateTask(TaskFormDto taskFormDto){
+        this.taskNm = taskFormDto.getTaskNm();
+        this.status = taskFormDto.getStatus();
+        this.writeDt = taskFormDto.getWriteDt();
+        this.modifyDt = taskFormDto.getModifyDt();
+    }
 }
