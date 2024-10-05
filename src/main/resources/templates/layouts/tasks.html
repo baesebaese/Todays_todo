@@ -7,7 +7,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,1,0" />
 </head>
 
@@ -24,93 +25,110 @@
             <colgroup class="col_task">
                 <col style="width: 20px">
                 <col style="width: 39px">
-                <col style="width: 419px">
+                <col style="width: 380px">
+                <col style="width: 39px">
                 <col style="width: 20px">
             </colgroup>
 
             <thead>
             <tr>
-                <th colspan='4' class="th-task">Tasks</th>
+                <th colspan='5' class="th-task">Tasks</th>
             </tr></thead>
             <tbody>
             <tr>
-                <td colspan='4' id="tr-none-topbottom"></td>
+                <td colspan='5' id="tr-none-topbottom"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn">
+                <td class="tr-taskicons">
                     <label class="checkbox_label">
                         <input type="checkbox">
                         <span class="checkbox_icon"></span>
                     </label>
                 </td>
                 <td class="tr-tasknm">고양이 밥주기</td>
+                <td class="tr-taskicons">
+                    <span class="material-symbols-outlined" id="close-icon" style="margin-top:8px; visibility:hidden;">close</span>
+                </td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn">
+                <td class="tr-taskicons">
                     <label class="checkbox_label">
                         <input type="checkbox">
                         <span class="checkbox_icon"></span>
                     </label>
                 </td>
                 <td class="tr-tasknm">설거지 하기</td>
+                <td class="tr-taskicons">
+                    <span class="material-symbols-outlined" id="close-icon" style="margin-top:8px; visibility:hidden;">close</span>
+                </td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn">
+                <td class="tr-taskicons">
                     <label class="checkbox_label">
                         <input type="checkbox">
                         <span class="checkbox_icon"></span>
                     </label>
                 </td>
                 <td class="tr-tasknm">빨래널기</td>
-                <td class="tr-none-leftright"></td>
-            </tr>
-            <tr>
-                <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn"></td>
-                <td class="tr-tasknm">
-                    <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
+                <td class="tr-taskicons">
+                    <span class="material-symbols-outlined" id="close-icon" style="margin-top:8px; visibility:hidden;">close</span>
                 </td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn"></td>
-                <td class="tr-tasknm"></td>
+                <td class="tr-taskicons"></td>
+                <td class="tr-tasknm">
+                    <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
+                </td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-tasknm"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-tasknm"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-tasknm"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-tasknm"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
                 <td class="tr-none-leftright"></td>
-                <td class="tr-taskyn"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-tasknm"></td>
+                <td class="tr-taskicons"></td>
+                <td class="tr-none-leftright"></td>
+            </tr>
+            <tr>
+                <td class="tr-none-leftright"></td>
+                <td class="tr-taskicons"></td>
+                <td class="tr-tasknm"></td>
+                <td class="tr-taskicons"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
@@ -121,4 +139,5 @@
     </div>
 </div>
 </body>
+<script type="text/javascript" th:src="@{/js/tasks.js}"></script>
 </html>

@@ -4,7 +4,7 @@
 
 .inputForm {
     width: 300px;
-    height: 150px;
+    height: 160px;
     border-radius: 20px;
     border: solid 1px #EC5252;
     padding: 20px;
@@ -15,20 +15,24 @@
     font-weight: bolder;
 }
 
+.inputBoxArea {
+  margin: 20px 10px 10px 10px;
+}
+
 input[type="text"] {
-  width: 85%;
+  width: 90%;
   padding: 10px;
-  border-style: none none solid none;
-  border-color:#EC5252;
+  border: none;
+  border-bottom: 1px solid;
   border-width: 1px;
   background-color: #f9f9f9;
   display: block;
-  margin: 20px 10px 20px;
 }
 
 input:focus {
   outline: none;
   background-color: white;
+  border-bottom: 1px solid;
 }
 
 button {
@@ -40,4 +44,16 @@ button {
 
 button[type="submit"] {
   color: #EC5252;
+}
+
+input[type="text"].error {
+  border: 1px solid #EC5252;
+  background-color: white;
+}
+
+.warning {
+  margin: 5px;
+  font-size: 12px;
+  color: #EC5252;
+  visibility: hidden;
 }
