@@ -25,8 +25,14 @@ public class TaskController {
         return "layouts/tasks";  // templates/tasks.html로 반환
     }
 
+    @GetMapping("/totos/tasks/new")  // 입력 폼을 보여주는 URL을 매핑
+    public String showTaskForm(Model model) {
+        model.addAttribute("task", new Task());  // 폼에 사용할 빈 Task 객체 전달
+        return "task/inputForm";  // 'task-form.html' 템플릿을 렌더링
+    }
+
     // Task 입력을 처리하는 POST 메서드
-    @PostMapping("/tasks")
+    @PostMapping("/totos/tasks")
     public String saveTask(@ModelAttribute Task task) {
         taskService.saveTask(task);  // Task를 저장
         return "redirect:/tasks";  // 저장 후 Task 목록 페이지로 리다이렉트

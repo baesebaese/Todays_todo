@@ -14,7 +14,7 @@
 
 <body>
 <div layout:fragment="content" class="inputForm">
-  <form role="form" method="post" enctype="multipart/form-data" th:object="${taskFormDto}">
+  <form role="form" method="post" enctype="multipart/form-data" th:object="${task}">
       <p class="modal_title">할 일 추가하기</p>
       <div class="inputBoxArea">
         <input type="text" th:field="*{taskNm}" class="form-control" id="inputBox" maxlength="20" placeholder="할 일을 입력하세요">
