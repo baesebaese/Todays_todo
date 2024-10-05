@@ -19,4 +19,9 @@ public class TaskService {
     public List<Task> getTasksByTotoNo(int totoNo) {
         return taskRepository.findByToto_TotoNo(totoNo);
     }
+
+    // Task를 저장하는 메서드
+    public void saveTask(Task task) {
+        taskRepository.save(task);
+    }
 }

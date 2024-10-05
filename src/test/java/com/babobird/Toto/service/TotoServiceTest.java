@@ -36,4 +36,6 @@ class TotoServiceTest {
         // 특정 데이터가 있는지 확인 (예: "Task 1"이 존재하는지)
         assertTrue(todos.stream().anyMatch(todo -> todo.getTotoNm().equals("Task 1")));
     }
+
+
 }

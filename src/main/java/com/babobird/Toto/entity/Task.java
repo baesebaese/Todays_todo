@@ -37,6 +37,26 @@ public class Task{
     @JoinColumn(name = "toto_no")
     private Toto toto;
 
+    // @PrePersist: 엔티티가 처음 저장될 때 실행
+    @PrePersist
+    protected void onCreate() {
+        if (status == null) {
+            status = TaskStatus.N;  // status가 없을 경우 기본값 "N" 설정
+        }
+
+        writeDt = LocalDateTime.now();
+        modifyDt = LocalDateTime.now();
+    }
+
+    // @PreUpdate: 엔티티가 업데이트될 때 실행
+    @PreUpdate
+    protected void onUpdate() {
+        if (status == null) {
+            status = TaskStatus.N;  // status가 없을 경우 기본값 "N" 설정
+        }
+        modifyDt = LocalDateTime.now();
+    }
+
     public int getTaskNo() {
         return taskNo;
     }
