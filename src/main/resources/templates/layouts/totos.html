@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Today's To-do</title>
     <link rel="icon" href="./img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
@@ -32,9 +32,7 @@
             <tbody>
             <tr th:each="toto : ${totos}">
                 <td class="tr-listnm">
-                    <!--th:href="@{/path/to/page/{id}(id=${toto.id})}" 로 수정,
-                         근데/path/to/page/{id} 부분은 실제 페이지 경로로 바꿔야 함-->
-                    <a href="tasks.html" th:text="${toto.totoNm}" style="text-decoration: none; color: inherit;"></a>
+                    <a th:href="@{/totos/{no}/tasks(no=${toto.totoNo})}" th:text="${toto.totoNm}" style="text-decoration: none; color: inherit;"></a>
                 </td>
                 <td class="tr-listpg">0%</td>
             </tr>
