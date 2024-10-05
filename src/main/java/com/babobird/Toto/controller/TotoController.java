@@ -24,7 +24,7 @@ public class TotoController {
     public String getAllTotos(Model model) {
         List<Toto> totos = totoService.getAllTotos();
         model.addAttribute("totos", totos);  // 데이터를 모델에 추가
-        return "layouts/index";  // "index.html"로 리턴
+        return "layouts/totos";  // "totos.html"로 리턴
     }
 
 }
