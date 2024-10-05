@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -16,6 +17,8 @@ import com.querydsl.core.types.Path;
 public class QTask extends EntityPathBase<Task> {
 
     private static final long serialVersionUID = 223688276L;
+
+    private static final PathInits INITS = PathInits.DIRECT2;
 
     public static final QTask task = new QTask("task");
 
@@ -27,18 +30,29 @@ public class QTask extends EntityPathBase<Task> {
 
     public final NumberPath<Integer> taskNo = createNumber("taskNo", Integer.class);
 
+    public final QToto toto;
+
     public final DateTimePath<java.time.LocalDateTime> writeDt = createDateTime("writeDt", java.time.LocalDateTime.class);
 
     public QTask(String variable) {
-        super(Task.class, forVariable(variable));
+        this(Task.class, forVariable(variable), INITS);
     }
 
     public QTask(Path<? extends Task> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QTask(PathMetadata metadata) {
-        super(Task.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QTask(PathMetadata metadata, PathInits inits) {
+        this(Task.class, metadata, inits);
+    }
+
+    public QTask(Class<? extends Task> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.toto = inits.isInitialized("toto") ? new QToto(forProperty("toto")) : null;
     }
 
 }
