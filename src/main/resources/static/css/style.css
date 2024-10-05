@@ -1,5 +1,5 @@
 body {
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-style: normal;
     color: #EC5252;
     }
@@ -27,7 +27,7 @@ h2 {
     border: 1px solid #EC5252;
     border-collapse: collapse;
     height: 100px;
-    width: 498px;
+    width: 499px;
     background-color: #FFF5F5;
     float: left;
     display: block;
@@ -44,6 +44,7 @@ h2 {
     table-layout: fixed;
     float: left;
     width: 500px;
+    outline: 1px solid;
     }
 
 .list th {
@@ -65,7 +66,7 @@ h2 {
 
 .th-listnm {
     border-right: 1px dotted;
-    border-left: 1px solid;    
+    border-left: 1px solid;
     }
 
 .th-listpg {
@@ -93,7 +94,7 @@ h2 {
     border-right: 1px solid;
         border-left: 1px solid;
 }
-    
+
 .tr-tasknm {
     border-left: none;
     border-bottom: 1px solid;
@@ -101,7 +102,7 @@ h2 {
     text-indent: 10px;
     }
 
-.tr-taskyn {
+.tr-taskicons {
     border-right: none;
     border-bottom: 1px solid;
     text-align: center;
@@ -133,7 +134,6 @@ input[type='checkbox'] {
     border-radius: 0020px;
     box-sizing: border-box;
     cursor: pointer;
-    vertical-align: middle;
     float: right;
     }
 
@@ -155,4 +155,5 @@ form[type='button'] {
   'GRAD' 0,
   'opsz' 24;
   cursor: pointer;
+  color: #ec5252;
 }
