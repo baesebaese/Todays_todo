@@ -6,18 +6,15 @@ import java.util.Objects;
 public class TaskId implements Serializable {
 
     private int taskNo;
-    private int totoNo;
+    private int totoNo;  // Toto 엔티티의 totoNo를 참조
 
-    // 기본 생성자
     public TaskId() {}
 
-    // 매개변수가 있는 생성자
     public TaskId(int taskNo, int totoNo) {
         this.taskNo = taskNo;
         this.totoNo = totoNo;
     }
 
-    // Getters, Setters, equals, hashCode 메서드
     public int getTaskNo() {
         return taskNo;
     }

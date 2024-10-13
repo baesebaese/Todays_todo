@@ -19,22 +19,4 @@ public class Toto {
 
     @Column(name="toto_nm", nullable = false, length = 100)
     private String totoNm; // 리스트 이름
-
-
-    public int getTotoNo() {
-        return totoNo;
-    }
-
-    public void setTotoNo(int totoNo) {
-        this.totoNo = totoNo;
-    }
-
-    public String getTotoNm() {
-        return totoNm;
-    }
-
-    public void setTotoNm(String totoNm) {
-        this.totoNm = totoNm;
-    }
-
 }

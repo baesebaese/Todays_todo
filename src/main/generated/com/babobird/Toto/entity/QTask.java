@@ -32,6 +32,8 @@ public class QTask extends EntityPathBase<Task> {
 
     public final QToto toto;
 
+    public final NumberPath<Integer> totoNo = createNumber("totoNo", Integer.class);
+
     public final DateTimePath<java.time.LocalDateTime> writeDt = createDateTime("writeDt", java.time.LocalDateTime.class);
 
     public QTask(String variable) {
