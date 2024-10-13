@@ -1,5 +1,6 @@
 const inputBox = document.getElementById("inputBox");
 const warningMessage = document.getElementById("warningMessage");
+const totoNo = document.getElementById('toto-data').getAttribute('data-toto')
 
 // 초기 상태 설정
 inputBox.classList.remove('error');
@@ -18,11 +19,25 @@ inputBox.addEventListener('input', () => {
   }
 });
 
-function submitValue() {
+function submitTask() {
+    taskNm = inputBox.value;
+    const submitValue= {"totoNo": totoNo, "taskNm": taskNm}
 
-      alert(inputValue)
-}
+    alert(JSON.stringify(submitValue))
+
+    fetch('totos/tasks', {
+          method: 'POST',
+          body: submitValue
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+};
 
 function cancelInput() {
-    alert("창닫기")
+    alert(totoNo)
 }
