@@ -19,6 +19,7 @@ inputBox.addEventListener('input', () => {
 });
 
 function submitValue() {
+
       alert(inputValue)
 }
 

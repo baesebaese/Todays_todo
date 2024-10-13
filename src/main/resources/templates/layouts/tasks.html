@@ -16,12 +16,15 @@
 <div class="outer_div">
     <div class="header_div">
         <a th:href="@{/totos}" style="text-decoration: none;">
-        <span class="material-symbols-outlined" style="font-size:36px; float:left; margin-top:8px; margin-left:8px">chevron_left</span>
+            <span class="material-symbols-outlined" style="font-size:36px; float:left; margin-top:8px; margin-left:8px">chevron_left</span>
         </a>
         <span class="material-symbols-outlined" style="font-size:32px; float:right; margin-top:10px; margin-right:12px">delete</span>
         <h2>첫번째 리스트</h2>
     </div>
-    
+
+    <!-- Hidden div to store totoNo data -->
+    <div id="toto-data" th:data-toto="${totoNo}"></div>
+
     <div class="task_table_div">
         <table class="list">
             <colgroup class="col_task">
@@ -58,20 +61,14 @@
                 <td class="tr-none-leftright"></td>
                 <td class="tr-taskicons"></td>
                 <td class="tr-tasknm">
-                    <a th:href="@{/totos/tasks/new}" style="text-decoration: none;">
-                    <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
+                    <!-- Add-task button -->
+                    <a th:href="@{/totos/{totoNo}/tasks/new(totoNo=${totoNo})}" id="add-task" style="text-decoration: none;">
+                        <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
                     </a>
                 </td>
                 <td class="tr-taskicons"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
-<!--            <tr>-->
-<!--                <td class="tr-none-leftright"></td>-->
-<!--                <td class="tr-taskicons"></td>-->
-<!--                <td class="tr-tasknm"></td>-->
-<!--                <td class="tr-taskicons"></td>-->
-<!--                <td class="tr-none-leftright"></td>-->
-<!--            </tr>-->
             <tr>
                 <td colspan='4' id="tr-none-topbottom"></td>
             </tr>
@@ -79,6 +76,8 @@
         </table>
     </div>
 </div>
+
 </body>
 <script type="text/javascript" th:src="@{/js/tasks.js}"></script>
+
 </html>
