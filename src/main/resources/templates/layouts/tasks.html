@@ -62,7 +62,11 @@
                     <span class="material-symbols-outlined" id="edit-icon" style="margin-top:8px; visibility:hidden;">edit</span>
                 </td>
                 <td class="tr-taskicons">
-                    <span class="material-symbols-outlined" id="close-icon" style="margin-top:8px; visibility:hidden;">close</span>
+                <span class="material-symbols-outlined"
+                    id="close-icon" style="margin-top:8px; visibility:hidden;"
+                      th:data-toto-no="${task.totoNo}"
+                      th:data-task-no="${task.taskNo}"
+                    onclick="deleteTask(this)">close</span>
                 </td>
                 <td class="tr-none-leftright"></td>
             </tr>
