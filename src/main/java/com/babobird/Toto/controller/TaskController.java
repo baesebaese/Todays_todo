@@ -25,6 +25,7 @@ public class TaskController {
         return "layouts/tasks";  // templates/tasks.html로 반환
     }
 
+    // Task 목록을 조회하는 메서드
     @GetMapping("/totos/tasks/new")  // 입력 폼을 보여주는 URL을 매핑
     public String showTaskForm(Model model) {
         model.addAttribute("task", new Task());  // 폼에 사용할 빈 Task 객체 전달
@@ -36,5 +37,12 @@ public class TaskController {
     public String saveTask(@ModelAttribute Task task) {
         taskService.saveTask(task);  // Task를 저장
         return "redirect:/tasks";  // 저장 후 Task 목록 페이지로 리다이렉트
+    }
+
+    // Task 삭제 요청을 처리하는 메서드
+    @DeleteMapping("/totos/{totoNo}/tasks/{taskNo}")
+    public String deleteTask(@PathVariable int totoNo, @PathVariable int taskNo) {
+        taskService.deleteTaskById(taskNo, totoNo);
+        return "redirect:/totos/" + totoNo + "/tasks";  // 삭제 후 해당 투두의 Task 목록 페이지로 리다이렉트
     }
 }

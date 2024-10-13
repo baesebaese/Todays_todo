@@ -20,6 +20,11 @@ public class Task{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int taskNo; // 할 일 번호
 
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "toto_no")
+    private Toto toto;
+
     @Column(name="task_nm", nullable = false, length = 100)
     private String taskNm; // 할 일 이름
 
@@ -32,10 +37,6 @@ public class Task{
 
     @Column(name = "modify_dt")
     private LocalDateTime modifyDt; // 수정일
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "toto_no")
-    private Toto toto;
 
     // @PrePersist: 엔티티가 처음 저장될 때 실행
     @PrePersist
