@@ -13,6 +13,7 @@ body {
     }
 
 h1 {
+    font-size: 28px;
     margin-top: 50px;
     margin-left: 14px;
     }
@@ -49,7 +50,7 @@ h2 {
 
 .list th {
     height: 50px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     background-color: #FFF5F5;
     border-top: 2px solid;
