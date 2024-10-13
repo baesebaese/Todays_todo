@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http:/www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout1}">
 
 <head>
   <title>할일 추가하기</title>
@@ -13,7 +12,7 @@
 </head>
 
 <body>
-<div layout:fragment="content" class="inputForm">
+<div class="inputForm">
   <form role="form" method="post" enctype="multipart/form-data" th:object="${task}">
       <p class="modal_title">할 일 추가하기</p>
       <div class="inputBoxArea">

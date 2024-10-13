@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,1,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=edit" />
 </head>
 
 <body>
@@ -30,34 +31,40 @@
             <colgroup class="col_task">
                 <col style="width: 20px">
                 <col style="width: 39px">
-                <col style="width: 380px">
+                <col style="width: 341px">
+                <col style="width: 39px">
                 <col style="width: 39px">
                 <col style="width: 20px">
             </colgroup>
 
             <thead>
             <tr>
-                <th colspan='5' class="th-task">Tasks</th>
+                <th colspan='6' class="th-task">Tasks</th>
             </tr></thead>
             <tbody>
             <tr>
-                <td colspan='5' id="tr-none-topbottom"></td>
+                <td colspan='6' id="tr-none-topbottom"></td>
             </tr>
             <tr th:each="task : ${tasks}">
                 <td class="tr-none-leftright"></td>
                 <td class="tr-taskicons">
                     <label class="checkbox_label">
-                        <input type="checkbox">
+                        <input type="checkbox" th:disabled="${task.status == 'N'}">
                         <span class="checkbox_icon"></span>
                     </label>
                 </td>
                 <td class="tr-tasknm" th:text="${task.taskNm}"></td>
                 <td class="tr-taskicons">
+                    <span class="material-symbols-outlined" id="edit-icon" style="margin-top:8px; visibility:hidden;">edit</span>
+                </td>
+                <td class="tr-taskicons">
                     <span class="material-symbols-outlined" id="close-icon" style="margin-top:8px; visibility:hidden;">close</span>
                 </td>
                 <td class="tr-none-leftright"></td>
             </tr>
-            <tr>
+
+            <!--task 가 9건 이하일 때는 태스크 추가 버튼이 있는 라인을 표시한다.-->
+            <tr th:if="${tasks.size() < 10}">
                 <td class="tr-none-leftright"></td>
                 <td class="tr-taskicons"></td>
                 <td class="tr-tasknm">
@@ -66,11 +73,10 @@
                         <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
                     </a>
                 </td>
-                <td class="tr-taskicons"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
             <tr>
-                <td colspan='4' id="tr-none-topbottom"></td>
+                <td colspan='6' id="tr-none-topbottom"></td>
             </tr>
             </tbody>
         </table>
