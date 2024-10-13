@@ -118,8 +118,10 @@ h2 {
     height: 10px;
 }
 
+#addbutton-line, #blank-line{
+    border-bottom: 1px solid #EC5252;
+}
 
-/* 체크박스 관련 */
 input[type='checkbox'] {
     display: none;
     }
@@ -138,7 +140,6 @@ input[type='checkbox'] {
     float: right;
     }
 
-/* checked */
 .checkbox_label input:checked + .checkbox_icon::before {
     background: url(../img/checked.png) #ec5252 no-repeat center;
     background-size: 70%;

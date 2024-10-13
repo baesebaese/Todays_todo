@@ -29,7 +29,7 @@ public class TaskController {
     @GetMapping("/totos/tasks/new")  // 입력 폼을 보여주는 URL을 매핑
     public String showTaskForm(Model model) {
         model.addAttribute("task", new Task());  // 폼에 사용할 빈 Task 객체 전달
-        return "layouts/inputForm";  // 'task-form.html' 템플릿을 렌더링
+        return "task/inputForm";  // 'task-form.html' 템플릿을 렌더링
     }
 
     // Task 입력을 처리하는 POST 메서드

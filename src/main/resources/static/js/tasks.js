@@ -1,12 +1,18 @@
-    // 마우스 인/아웃시 close 아이콘 표시/숨김 처리
-    document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
-        item.addEventListener('mouseover', () => {
-            const closeIcon = item.closest('tr').querySelector('.tr-taskicons #close-icon');
-            closeIcon.style.visibility = 'visible';
-        });
+document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
+    const taskRow = item.closest('tr');
+    const closeIcon = taskRow.querySelector('.tr-taskicons #close-icon');
+    const editIcon = taskRow.querySelector('.tr-taskicons #edit-icon');
 
-        item.addEventListener('mouseout', () => {
-            const closeIcon = item.closest('tr').querySelector('.tr-taskicons #close-icon');
-            closeIcon.style.visibility = 'hidden';
-        });
-    });
+    const showIcons = () => {
+        closeIcon.style.visibility = 'visible';
+        editIcon.style.visibility = 'visible';
+    };
+
+    const hideIcons = () => {
+        closeIcon.style.visibility = 'hidden';
+        editIcon.style.visibility = 'hidden';
+    };
+
+    item.addEventListener('mouseover', showIcons);
+    item.addEventListener('mouseout', hideIcons);
+});
