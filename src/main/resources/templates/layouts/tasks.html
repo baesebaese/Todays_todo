@@ -82,12 +82,14 @@
                 <td class="tr-none-leftright"></td>
             </tr>
 
-            <!-- 데이터가 9건 이하일 때 빈줄을 표시 -->
-            <tr th:if="${tasks.size() < 10}" th:each="i: ${#numbers.sequence(1, 9 - tasks.size())}">
+            <!-- 데이터가 9건 이하일 때 빈줄을 (9 - 데이터 수) 만큼 표시 -->
+            <tr th:if="${tasks.size() < 9}" th:each="i: ${#numbers.sequence(1, 9 - tasks.size())}">
                 <td class="tr-none-leftright"></td>
                 <td colspan='4' id="blank-line"></td>
                 <td class="tr-none-leftright"></td>
             </tr>
+            <!-- 데이터가 9일 때는 빈줄을 추가하지 않음 -->
+            <tr th:unless="${tasks.size() < 9}"></tr>
 
             <!-- 맨 밑에 공백 줄 표시 -->
             <tr>

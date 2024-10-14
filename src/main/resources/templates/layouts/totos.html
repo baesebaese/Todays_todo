@@ -50,10 +50,12 @@
             </tr>
 
             <!-- 데이터가 9건 이하일 때 빈줄을 표시 -->
-            <tr th:if="${totos.size() < 10}" th:each="i: ${#numbers.sequence(1, 9 - totos.size())}">
+            <tr th:if="${totos.size() < 9}" th:each="i: ${#numbers.sequence(1, 9 - totos.size())}">
                 <td class="tr-listnm"></td>
                 <td class="tr-listpg"></td>
             </tr>
+            <!-- 데이터가 9일 때는 빈줄을 추가하지 않음 -->
+            <tr th:unless="${totos.size() < 9}"></tr>
 
             </tbody>
         </table>
