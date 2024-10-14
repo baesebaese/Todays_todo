@@ -20,7 +20,7 @@ inputBox.addEventListener('input', () => {
 });
 
 function submitTask() {
-    event.preventDefault();ㅕ  // 폼 기본 동작을 막음 (새로고침 방지)
+    event.preventDefault();  // 폼 기본 동작을 막음 (새로고침 방지)
     const taskNm = inputBox.value;
     const submitValue =
         {

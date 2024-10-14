@@ -27,7 +27,17 @@ public class TaskController {
     @GetMapping("/{totoNo}/tasks")
     public String getTasksByTodoId(@PathVariable int totoNo, Model model) {
         List<Task> tasks = taskService.getTasksByTotoNo(totoNo);
+        Toto toto = totoService.getTotoById(totoNo);
+
+        if (toto == null) {
+            // Toto 객체가 없을 경우 처리 (예: 에러 페이지나 리다이렉트)
+            return "redirect:/totos";  // 에러 시 목록으로 리다이렉트
+        }
+
+        // 3. Model에 Task 목록과 Toto 이름 추가
         model.addAttribute("tasks", tasks);
+        model.addAttribute("totoNm", toto.getTotoNm());
+
         return "layouts/tasks";  // templates/tasks.html로 반환
     }
 
