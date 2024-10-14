@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 
 <head>
-  <title>할일 추가하기</title>
+  <title>투투 리스트 추가하기</title>
   <link rel="stylesheet" th:href="@{/css/inputForm.css}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,19 +13,16 @@
 
 <body>
 
-<!-- Hidden div to store totoNo data -->
-<div id="toto-data" th:data-toto="${totoNo}"></div>
-
 <div class="inputForm">
-  <form id ="taskform" role="form" method="post" enctype="multipart/form-data" th:object="${task}">
-      <p class="modal_title">할 일 추가하기</p>
+  <form id ="taskform" role="form" method="post" enctype="multipart/form-data" th:object="${toto}">
+      <p class="modal_title">투투 리스트 추가하기</p>
       <div class="inputBoxArea">
-        <input type="text" th:field="*{taskNm}" class="form-control" id="inputBox" maxlength="20" placeholder="할 일을 입력하세요">
+        <input type="text" th:field="*{totoNm}" class="form-control" id="inputBox" maxlength="20" placeholder="제목을 입력하세요">
         <p class="warning" id="warningMessage">입력한 내용이 10자를 초과했습니다.</p>
       </div>
       <button type="submit" onclick="submitTask()">확인</button>
       <button type="button" onclick="cancelInput()">취소</button>
-      <script type="text/javascript" th:src="@{/js/inputForm.js}"></script>
+      <script type="text/javascript" th:src="@{/js/inputList.js}"></script>
   </form>
 </div>
 

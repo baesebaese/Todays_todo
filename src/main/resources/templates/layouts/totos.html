@@ -42,7 +42,9 @@
             <!--데이터가 9건 이하일 때는 추가 버튼이 있는 라인을 표시한다.-->
             <tr th:if="${totos.size() < 10}">
                 <td class="tr-listnm">
-                    <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
+                    <a th:href="@{/totos/new}" id="add-task" style="text-decoration: none;">
+                        <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
+                    </a>
                 </td>
                 <td class="tr-listpg"></td>
             </tr>
@@ -57,6 +59,7 @@
         </table>
     </div>
 </div>
+
 </body>
 
 </html>
