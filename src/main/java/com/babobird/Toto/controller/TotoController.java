@@ -5,6 +5,9 @@ import com.babobird.Toto.service.TotoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -23,6 +26,14 @@ public class TotoController {
         List<Toto> totos = totoService.getAllTotos();
         model.addAttribute("totos", totos);  // 데이터를 모델에 추가
         return "layouts/totos";  // "totos.html"로 리턴
+    }
+
+    // 리스트 저장 메서드
+    @PostMapping("/save")
+    public String saveToto(@ModelAttribute("toto") Toto toto, RedirectAttributes redirectAttributes) {
+        totoService.saveToto(toto);  // 서비스 레이어에서 저장 처리
+        redirectAttributes.addFlashAttribute("message", "리스트 저장이 완료되었습니다.");
+        return "redirect:/totos";  // 저장 후 리스트 페이지로 리다이렉트
     }
 
 }

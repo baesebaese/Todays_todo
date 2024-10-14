@@ -25,5 +25,9 @@ public class TotoService {
         return totoRepository.findById(totoNo).orElse(null);  // 해당하는 Toto가 없으면 null 반환
     }
 
+    // 리스트 저장 메서드
+    public void saveToto(Toto toto) {
+        totoRepository.save(toto);  // 레포지토리를 통해 리스트 저장
+    }
     // 추가적으로 필요한 서비스 메소드들을 여기에 구현 가능
 }

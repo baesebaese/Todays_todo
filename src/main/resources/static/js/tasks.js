@@ -20,6 +20,7 @@ document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
 
 // delete 버튼 클릭시 삭제 처리
 function deleteTask(element) {
+    event.preventDefault();  // 폼 기본 동작을 막음 (새로고침 방지)
     const totoNo = element.getAttribute('data-toto-no');
     const taskNo = element.getAttribute('data-task-no');
 
@@ -27,12 +28,16 @@ function deleteTask(element) {
 
     fetch(url, {
         method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow'  // 리다이렉트를 자동으로 따르도록 설정
     })
     .then(response => {
-        if (response.ok) {
-            alert('Task deleted successfully!');
+        if (response.redirected) {
+            window.location.href = response.url;
         } else {
-            alert('Failed to delete the task.');
+            return response.json();  // JSON 응답 처리
         }
     })
     .catch(error => {
