@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -62,6 +63,54 @@ public class TaskController {
         return "task/inputForm";  // 입력 폼 페이지로 이동
     }
 
+    // Task 수정 폼을 보여주는 메서드 (taskNm과 modifyDt 수정)
+    @GetMapping("/{totoNo}/tasks/{taskNo}/edit")
+    public String showEditTaskForm(@PathVariable int totoNo, @PathVariable int taskNo, Model model) {
+        Task task = taskService.getTaskById(taskNo, totoNo);
+
+        if (task == null) {
+            // 해당 Task가 없을 경우 처리
+            return "redirect:/totos/" + totoNo + "/tasks";
+        }
+
+        model.addAttribute("task", task);
+        return "task/inputForm";  // 수정 폼 페이지로 이동
+    }
+
+    @PostMapping("/{totoNo}/tasks/{taskNo}/edit")
+    public String updateTaskNameAndDate(@PathVariable int totoNo, @PathVariable int taskNo, @ModelAttribute Task task) {
+        try {
+            Task existingTask = taskService.getTaskById(taskNo, totoNo);
+
+            if (existingTask != null) {
+                existingTask.setTaskNm(task.getTaskNm());  // Task 이름 수정
+                existingTask.setModifyDt(LocalDateTime.now());  // 수정일자 변경
+                taskService.saveTask(existingTask);
+            }
+        } catch (Exception e) {
+            return "redirect:/totos/" + totoNo + "/tasks";
+        }
+
+        return "redirect:/totos/" + totoNo + "/tasks";
+    }
+
+    // Task 상태와 수정일자를 업데이트하는 메서드
+    @PostMapping("/{totoNo}/tasks/{taskNo}/status")
+    public String updateTaskStatus(@PathVariable int totoNo, @PathVariable int taskNo, @RequestBody Task task) {
+        try {
+            Task existingTask = taskService.getTaskById(taskNo, totoNo);
+
+            if (existingTask != null) {
+                existingTask.setStatus(task.getStatus());  // 상태 업데이트
+                existingTask.setModifyDt(task.getModifyDt());  // 수정일자 변경
+                taskService.saveTask(existingTask);
+            }
+        } catch (Exception e) {
+            return "redirect:/totos/" + totoNo + "/tasks";
+        }
+
+        return "redirect:/totos/" + totoNo + "/tasks";
+    }
 
     // Task 입력을 처리하는 POST 메서드
     @PostMapping("/tasks")
