@@ -35,11 +35,13 @@ function submitTask() {
         body: JSON.stringify(submitValue),  // JSON 형식으로 데이터 전송
         redirect: 'follow'  // 리다이렉트를 자동으로 따르도록 설정
     })
-        .then(response => {
-            if (response.redirected) {
-                window.location.href = response.url;  // 리다이렉트 처리
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                window.location.href = data.redirectUrl;  // 성공 시 리다이렉트
             } else {
-                return response.json();  // JSON 응답 처리
+                alert("저장에 실패했습니다.");
+                window.location.href = data.redirectUrl;  // 실패 시에도 해당 페이지로 리다이렉트
             }
         })
         .catch((error) => {
