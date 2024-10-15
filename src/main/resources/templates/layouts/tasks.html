@@ -15,11 +15,19 @@
 
 <body>
 <div class="outer_div">
+    <!-- 헤더영역 -->
     <div class="header_div">
+        <!-- 전 화면으로 돌아가기 아이콘 -->
         <a th:href="@{/totos}" style="text-decoration: none;">
-            <span class="material-symbols-outlined" style="font-size:36px; float:left; margin-top:8px; margin-left:8px">chevron_left</span>
-        </a>
-        <span class="material-symbols-outlined" style="font-size:32px; float:right; margin-top:10px; margin-right:12px">delete</span>
+        <span class="material-symbols-outlined"
+                style="font-size:36px; float:left; margin-top:8px; margin-left:8px">chevron_left</span></a>
+        <!-- 리스트 삭제 아이콘 -->
+        <span class="material-symbols-outlined"
+              id="delete-toto-icon"
+              style="font-size:32px; float:right; margin-top:10px; margin-right:12px"
+              th:data-toto-no="${totoNo}"
+              onclick="deleteToto(this)">delete</span>
+        <!-- 리스트 명 표시 -->
         <h2>[[${totoNm}]]</h2>
     </div>
 
@@ -48,26 +56,30 @@
                 <td colspan='6' id="tr-none-topbottom"></td>
             </tr>
 
-            <!-- 서버에서 조회한 tasks 데이터를 표시한다. -->
+            <!-- 서버에서 조회한 tasks 데이터와 아이콘들을 표시한다. -->
             <tr th:each="task : ${tasks}">
                 <td class="tr-none-leftright"></td>
                 <td class="tr-taskicons">
+                    <!-- Status 체크박스 -->
                     <label class="checkbox_label">
                         <input type="checkbox" th:disabled="${task.status == 'N'}">
                         <span class="checkbox_icon"></span>
-                    </label>
-                </td>
+                    </label></td>
+                    <!-- 태스크 명 -->
                 <td class="tr-tasknm" th:text="${task.taskNm}"></td>
                 <td class="tr-taskicons">
-                    <span class="material-symbols-outlined" id="edit-icon" style="margin-top:8px; visibility:hidden;">edit</span>
-                </td>
+                    <!-- 태스크 수정 버튼 -->
+                    <span class="material-symbols-outlined"
+                        id="edit-task-icon"
+                        style="margin-top:8px; visibility:hidden;">edit</span></td>
                 <td class="tr-taskicons">
-                <span class="material-symbols-outlined"
-                    id="close-icon" style="margin-top:8px; visibility:hidden;"
-                      th:data-toto-no="${task.totoNo}"
-                      th:data-task-no="${task.taskNo}"
-                    onclick="deleteTask(this)">close</span>
-                </td>
+                    <!-- 태스크 삭제 버튼 -->
+                    <span class="material-symbols-outlined"
+                        id="delete-task-icon"
+                        style="margin-top:8px; visibility:hidden;"
+                        th:data-toto-no="${task.totoNo}"
+                        th:data-task-no="${task.taskNo}"
+                        onclick="deleteTask(this)">close</span></td>
                 <td class="tr-none-leftright"></td>
             </tr>
 
@@ -76,11 +88,9 @@
                 <td class="tr-none-leftright"></td>
                 <td colspan="4" id="addbutton-line">
                     <a th:href="@{/totos/{totoNo}/tasks/new(totoNo=${totoNo})}" id="add-task" style="text-decoration: none;">
-                        <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
-                    </a>
-                </td>
-                <td class="tr-none-leftright"></td>
-            </tr>
+                    <span class="material-symbols-outlined"
+                          style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span></a></td>
+                <td class="tr-none-leftright"></td></tr>
 
             <!-- 데이터가 9건 이하일 때 빈줄을 (9 - 데이터 수) 만큼 표시 -->
             <tr th:if="${tasks.size() < 9}" th:each="i: ${#numbers.sequence(1, 9 - tasks.size())}">
