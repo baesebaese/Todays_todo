@@ -10,4 +10,7 @@ public interface TaskRepository extends JpaRepository<Task, TaskId> {
 
     // Toto의 totoId를 기준으로 Task 목록을 조회하는 메서드
     List<Task> findByToto_TotoNo(int totoNo);
+
+    // totoNo로 연결된 모든 Task 삭제
+    void deleteByTotoNo(int totoNo);
 }

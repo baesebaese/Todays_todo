@@ -55,5 +55,25 @@ public class TotoController {
         return response;
     }
 
+    // Toto 삭제 요청을 처리하는 메서드
+    @DeleteMapping("/{totoNo}")
+    @ResponseBody
+    public Map<String, String> deleteToto(@PathVariable int totoNo) {
+        Map<String, String> response = new HashMap<>();
+
+        try {
+            // 서비스에서 totoNo에 해당하는 투두 항목을 삭제
+            totoService.deleteTotoById(totoNo);
+            response.put("status", "success");
+            response.put("redirectUrl", "/totos");  // 삭제 후 리다이렉트할 URL
+        } catch (Exception e) {
+            response.put("status", "error");
+            response.put("message", "삭제에 실패했습니다.");
+            response.put("redirectUrl", "/totos");  // 에러 시 리다이렉트할 URL
+        }
+
+        return response;
+    }
+
 }
 

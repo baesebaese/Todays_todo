@@ -4,6 +4,7 @@ package com.babobird.Toto.service;
 import com.babobird.Toto.entity.Task;
 import com.babobird.Toto.entity.TaskId;
 import com.babobird.Toto.repository.TaskRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,5 +38,11 @@ public class TaskService {
     public void deleteTaskById(int taskNo, int totoNo) {
         TaskId id = new TaskId(taskNo, totoNo);
         taskRepository.deleteById(id);
+    }
+
+    // totoNo로 모든 Task 삭제
+    @Transactional
+    public void deleteTasksByTotoNo(int totoNo) {
+        taskRepository.deleteByTotoNo(totoNo);
     }
 }
