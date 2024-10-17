@@ -1,7 +1,7 @@
 const inputBox = document.getElementById("inputBox");
 const warningMessage = document.getElementById("warningMessage");
-const totoNo = document.getElementById('toto-data').getAttribute('data-toto')
-const taskNo = document.getElementById('task-data').getAttribute('data-task')
+const totoNo = document.getElementById('toto-data').getAttribute('data-toto');
+const taskNo = document.getElementById('task-data').getAttribute('data-task');
 
 // 초기 상태 설정
 inputBox.classList.remove('error');
