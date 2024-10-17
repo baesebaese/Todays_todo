@@ -27,22 +27,22 @@ function submitTask() {
     let submitValue = {};
     let url = '';
 
-    if (!totoNo) { // 신규일 때 서버로 전송할 데이터와 주소
+    if (!taskNo) {  // 신규일 때 서버로 전송할 데이터와 주소
         submitValue =
             {
                 "totoNo": parseInt(totoNo),
                 "taskNm": taskNm
             };
-        url = `/totos/tasks`;
+        url = '/totos/tasks';
     }
-    else {  // 수정일 때 서버로 전송할 데이터와 주소
+    else {          // 수정일 때 서버로 전송할 데이터와 주소
         submitValue =
             {
                 "totoNo": parseInt(totoNo),
                 "taskNo": parseInt(taskNo),
                 "taskNm": taskNm
             };
-        url = `/${totoNo}/tasks/${taskNo}/edit`;
+        url = '/${totoNo}/tasks/${taskNo}/edit';
     }
 
         // 요청 보내기 전에 콘솔에 전송 데이터 출력
@@ -61,4 +61,8 @@ function submitTask() {
         .catch((error) => {
             console.error('Error:', error);
         });
+}
+
+function cancelInput() {
+    alert(totoNo)
 }
