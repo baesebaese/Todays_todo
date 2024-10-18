@@ -63,7 +63,7 @@
                 <td class="tr-taskicons">
                     <!-- Status 체크박스 -->
                     <label class="checkbox_label">
-                        <input type="checkbox" class="task-checkbox">
+                        <input type="checkbox" class="task-checkbox" th:checked="${task.status == 'Y'}">
                         <span class="checkbox_icon"></span>
                     </label></td>
                     <!-- 태스크 명 -->
