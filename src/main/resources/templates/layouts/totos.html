@@ -40,7 +40,7 @@
                        th:text="${toto.totoNm}" style="text-decoration: none; color: inherit;"></a>
                 </td>
                 <!-- 진행율 출력 -->
-                <td  class="tr-listnm"  th:each="toto : ${todoWithProgress.toto}"
+                <td  class="tr-listpg"  th:each="toto : ${todoWithProgress.toto}"
                      th:text="${todoWithProgress.progress + '%'}">
                 </td>
             </tr>
@@ -58,15 +58,6 @@
                 <td class="tr-listpg"></td>
             </tr>
 
-            <!-- 데이터가 9건 이하일 때 빈줄을 표시 -->
-            <tr th:if="${#lists.size(todosWithProgress[0].toto) < 9}" th:each="i: ${#numbers.sequence(1, 9 - #lists.size(todosWithProgress[0].toto))}">
-                <td class="tr-listnm"></td>
-                <td class="tr-listpg"></td>
-            </tr>
-
-            <!-- 데이터가 9일 때는 빈줄을 추가하지 않음 -->
-            <tr th:unless="${#lists.size(todosWithProgress[0].toto) < 9}"></tr>
-            </tbody>
         </table>
 
     </div>
