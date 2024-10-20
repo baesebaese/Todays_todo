@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Today's To-do</title>
-    <link rel="icon" href="./img/favicon.ico">
+    <link rel="icon" th:href="@{/img/favicon.ico}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,11 @@
             <!-- 데이터가 9건 이하일 때 추가 버튼이 있는 라인을 표시 -->
             <tr th:if="${#lists.size(todosWithProgress[0].toto) < 10}">
                 <td class="tr-listnm">
-                    <a th:href="@{/totos/new}" id="add-task" style="text-decoration: none;">
-                        <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
+                    <a th:href="@{/totos/new}"
+                       id="add-toto"
+                       style="text-decoration: none;">
+                    <span class="material-symbols-outlined"
+                          style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
                     </a>
                 </td>
                 <td class="tr-listpg"></td>

@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const status = document.getElementById('status-data').getAttribute('data-status');
+    const checkboxes = document.querySelectorAll('.task-checkbox');
+
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.checked = (status === 'Y');
+    });
+});
+
+
 // 마우스 오버시 수정/삭제 버튼 표시
 document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
     const taskRow = item.closest('tr');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Today's To-do</title>
-    <link rel="icon" href="./img/favicon.ico">
+    <link rel="icon" th:href="@{/img/favicon.ico}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,8 +31,9 @@
         <h2>[[${totoNm}]]</h2>
     </div>
 
-    <!-- Hidden div to store totoNo data -->
+    <!-- Hidden div to store data -->
     <div id="toto-data" th:data-toto="${totoNo}"></div>
+    <div id="status-data" th:data-status="${status}"></div>
 
     <div class="task_table_div">
         <table class="list">
@@ -62,7 +63,7 @@
                 <td class="tr-taskicons">
                     <!-- Status 체크박스 -->
                     <label class="checkbox_label">
-                        <input type="checkbox" th:disabled="${task.status == 'N'}">
+                        <input type="checkbox" class="task-checkbox" th:checked="${task.status == 'Y'}">
                         <span class="checkbox_icon"></span>
                     </label></td>
                     <!-- 태스크 명 -->
