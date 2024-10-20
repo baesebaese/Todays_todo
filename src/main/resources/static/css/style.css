@@ -65,31 +65,20 @@ h2 {
     color: black;
     }
 
-.th-listnm {
-    border-right: 1px dotted;
-    border-left: 1px solid;
-    }
-
-.th-listpg {
-    border-right: 1px solid;
-    border-left: 1px dotted;
+.th-listnm, th-listpg {
+    border: 1px solid;
     }
 
 .tr-listnm {
-    border-left: 1px solid;
-    border-right: 1px dotted;
-    border-bottom: 1px solid;
+    border: 1px solid;
     text-align: left;
     text-indent: 14px;
     }
 
 .tr-listpg {
-    border-left: 1px dotted;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
+    border: 1px solid;
     text-align: center;
     }
-
 
 .th-task {
     border-right: 1px solid;
@@ -123,6 +112,7 @@ h2 {
 }
 
 
+/* 버튼 아이콘 스타일 */
 form[type='button'] {
     display: none;
     }

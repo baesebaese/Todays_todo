@@ -36,10 +36,12 @@
             <tr th:each="todoWithProgress : ${todosWithProgress}">
                 <!-- todoWithProgress 안의 각 toto 리스트를 순회 -->
                 <td class="tr-listnm" th:each="toto : ${todoWithProgress.toto}">
-                    <a th:href="@{/totos/{no}/tasks(no=${toto.totoNo})}" th:text="${toto.totoNm}" style="text-decoration: none; color: inherit;"></a>
+                    <a th:href="@{/totos/{no}/tasks(no=${toto.totoNo})}"
+                       th:text="${toto.totoNm}" style="text-decoration: none; color: inherit;"></a>
                 </td>
-                <td  class="tr-listnm"  th:each="toto : ${todoWithProgress.toto}" th:text="${todoWithProgress.progress + '%'}">
-                    <!-- 진행율 출력 -->
+                <!-- 진행율 출력 -->
+                <td  class="tr-listnm"  th:each="toto : ${todoWithProgress.toto}"
+                     th:text="${todoWithProgress.progress + '%'}">
                 </td>
             </tr>
 
