@@ -42,6 +42,7 @@ public class TotoService {
 
             // 완료율 계산 (totalTasks가 0일 경우 0%로 설정)
             double progress = totalTasks > 0 ? (double) completedTasks / totalTasks * 100 : 0;
+            progress = Math.round(progress * 10) / 10.0;
 
             // 진행율 정보와 함께 Todo를 전달하기 위한 DTO 생성
             todosWithProgress.add(new TotoWithProgress(toto, progress));
