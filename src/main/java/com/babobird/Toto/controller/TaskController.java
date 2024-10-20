@@ -78,7 +78,7 @@ public class TaskController {
     }
 
     @PostMapping("/{totoNo}/tasks/{taskNo}/edit")
-    public String updateTaskNameAndDate(@PathVariable int totoNo, @PathVariable int taskNo, @ModelAttribute Task task) {
+    public String updateTaskNameAndDate(@PathVariable int totoNo, @PathVariable int taskNo, @RequestBody Task task) {
         try {
             Task existingTask = taskService.getTaskById(taskNo, totoNo);
 
