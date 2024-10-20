@@ -28,19 +28,23 @@
             <tr>
                 <th class="th-listnm">Title</th>
                 <th class="th-listpg">Progress</th>
-            </tr></thead>
+            </tr>
+            </thead>
 
             <tbody>
-            <!-- 서버에서 조회한 totos 데이터를 표시한다. -->
-            <tr th:each="toto : ${totos}">
-                <td class="tr-listnm">
+            <!-- todosWithProgress 리스트를 순회 -->
+            <tr th:each="todoWithProgress : ${todosWithProgress}">
+                <!-- todoWithProgress 안의 각 toto 리스트를 순회 -->
+                <td class="tr-listnm" th:each="toto : ${todoWithProgress.toto}">
                     <a th:href="@{/totos/{no}/tasks(no=${toto.totoNo})}" th:text="${toto.totoNm}" style="text-decoration: none; color: inherit;"></a>
                 </td>
-                <td class="tr-listpg">0%</td>
+                <td  class="tr-listnm"  th:each="toto : ${todoWithProgress.toto}" th:text="${todoWithProgress.progress + '%'}">
+                    <!-- 진행율 출력 -->
+                </td>
             </tr>
 
-            <!--데이터가 9건 이하일 때는 추가 버튼이 있는 라인을 표시한다.-->
-            <tr th:if="${totos.size() < 10}">
+            <!-- 데이터가 9건 이하일 때 추가 버튼이 있는 라인을 표시 -->
+            <tr th:if="${#lists.size(todosWithProgress[0].toto) < 10}">
                 <td class="tr-listnm">
                     <a th:href="@{/totos/new}" id="add-task" style="text-decoration: none;">
                         <span class="material-symbols-outlined" style="font-size:28px; color:#ec5252; display:flex; justify-content:center;">add_circle</span>
@@ -50,15 +54,16 @@
             </tr>
 
             <!-- 데이터가 9건 이하일 때 빈줄을 표시 -->
-            <tr th:if="${totos.size() < 9}" th:each="i: ${#numbers.sequence(1, 9 - totos.size())}">
+            <tr th:if="${#lists.size(todosWithProgress[0].toto) < 9}" th:each="i: ${#numbers.sequence(1, 9 - #lists.size(todosWithProgress[0].toto))}">
                 <td class="tr-listnm"></td>
                 <td class="tr-listpg"></td>
             </tr>
-            <!-- 데이터가 9일 때는 빈줄을 추가하지 않음 -->
-            <tr th:unless="${totos.size() < 9}"></tr>
 
+            <!-- 데이터가 9일 때는 빈줄을 추가하지 않음 -->
+            <tr th:unless="${#lists.size(todosWithProgress[0].toto) < 9}"></tr>
             </tbody>
         </table>
+
     </div>
 </div>
 

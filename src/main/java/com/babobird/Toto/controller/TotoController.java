@@ -1,5 +1,6 @@
 package com.babobird.Toto.controller;
 
+import com.babobird.Toto.dto.TotoWithProgress;
 import com.babobird.Toto.entity.Task;
 import com.babobird.Toto.entity.Toto;
 import com.babobird.Toto.service.TotoService;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +27,16 @@ public class TotoController {
     // 할 일 목록 조회 기능
     @GetMapping("")
     public String getAllTotos(Model model) {
-        List<Toto> totos = totoService.getAllTotos();
-        model.addAttribute("totos", totos);  // 데이터를 모델에 추가
+        List<TotoWithProgress> todosWithProgress = totoService.getAllTotosWithProgress();  // 서비스에서 진행율 계산된 Todos 가져오기
+
+        // Null일 경우 빈 리스트로 초기화
+        if (todosWithProgress == null) {
+            todosWithProgress = new ArrayList<>();
+        }
+
+        // 모델에 추가
+        model.addAttribute("todosWithProgress", todosWithProgress);
+
         return "layouts/totos";  // "totos.html"로 리턴
     }
 
