@@ -38,6 +38,12 @@ h2 {
     float: left;
 }
 
+.toto_table_div {
+    max-height: 560px;
+    overflow-y: auto;
+    float: left;
+}
+
 .list {
     border: 2px;
     border-collapse:collapse;
