@@ -60,30 +60,34 @@
             <!-- 서버에서 조회한 tasks 데이터와 아이콘들을 표시한다. -->
             <tr th:each="task : ${tasks}">
                 <td class="tr-none-leftright"></td>
+
+                <!-- Status 체크박스 -->
                 <td class="tr-taskicons">
-                    <!-- Status 체크박스 -->
                     <label class="checkbox_label">
-                        <input type="checkbox" class="task-checkbox" th:checked="${task.status == 'Y'}">
+                        <input type="checkbox" class="task-checkbox" th:checked="${#strings.trim(task.status) == 'Y'}">
                         <span class="checkbox_icon"></span>
                     </label></td>
-                    <!-- 태스크 명 -->
+
+                <!-- 태스크 명 -->
                 <td class="tr-tasknm" th:text="${task.taskNm}"></td>
+
+                <!-- 태스크 수정 버튼 -->
                 <td class="tr-taskicons">
-                    <!-- 태스크 수정 버튼 -->
                     <a th:href="@{/totos/{totoNo}/tasks/{taskNo}/edit(totoNo=${totoNo},taskNo=${task.taskNo})}"
                         id="edit-task"
                         style="text-decoration: none;">
                     <span class="material-symbols-outlined"
                         id="edit-task-icon"
                         style="margin-top:8px; visibility:hidden;">edit</span></a></td>
+                <!-- 태스크 삭제 버튼 -->
                 <td class="tr-taskicons">
-                    <!-- 태스크 삭제 버튼 -->
                     <span class="material-symbols-outlined"
                         id="delete-task-icon"
                         style="margin-top:8px; visibility:hidden;"
                         th:data-toto-no="${task.totoNo}"
                         th:data-task-no="${task.taskNo}"
                         onclick="deleteTask(this)">close</span></td>
+
                 <td class="tr-none-leftright"></td>
             </tr>
 

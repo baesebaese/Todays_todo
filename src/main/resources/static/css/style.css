@@ -122,6 +122,22 @@ h2 {
     border-bottom: 1px solid #EC5252;
 }
 
+
+form[type='button'] {
+    display: none;
+    }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  cursor: pointer;
+  color: #ec5252;
+}
+
+/* 체크박스 아이콘 스타일 */
 input[type='checkbox'] {
     display: none;
     }
@@ -145,17 +161,3 @@ input[type='checkbox'] {
     background-size: 70%;
     border: none;
     }
-
-form[type='button'] {
-    display: none;
-    }
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
-  cursor: pointer;
-  color: #ec5252;
-}

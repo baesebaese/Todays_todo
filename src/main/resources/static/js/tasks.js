@@ -1,13 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const status = document.getElementById('status-data').getAttribute('data-status');
-    const checkboxes = document.querySelectorAll('.task-checkbox');
-
-    checkboxes.forEach((checkbox, index) => {
-        checkbox.checked = (status === 'Y');
-    });
-});
-
-
 // 마우스 오버시 수정/삭제 버튼 표시
 document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
     const taskRow = item.closest('tr');
@@ -27,6 +17,7 @@ document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
     item.addEventListener('mouseover', showIcons);
     item.addEventListener('mouseout', hideIcons);
 });
+
 
 // 태스크 삭제 버튼 클릭시 삭제 처리
 function deleteTask(element) {
