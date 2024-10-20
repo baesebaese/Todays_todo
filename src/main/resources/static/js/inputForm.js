@@ -20,6 +20,8 @@ inputBox.addEventListener('input', () => {
   }
 });
 
+
+// 확인 클릭시 입력값을 제출
 function submitTask() {
     event.preventDefault();  // 폼 기본 동작을 막음 (새로고침 방지)
     const taskNm = inputBox.value;
@@ -42,7 +44,7 @@ function submitTask() {
                 "taskNo": parseInt(taskNo),
                 "taskNm": taskNm
             };
-        url = '/${totoNo}/tasks/${taskNo}/edit';
+        url = `/${totoNo}/tasks/${taskNo}/edit`;
     }
 
         // 요청 보내기 전에 콘솔에 전송 데이터 출력
@@ -64,5 +66,5 @@ function submitTask() {
 }
 
 function cancelInput() {
-    alert(totoNo)
+    window.history.back();
 }

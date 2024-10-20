@@ -33,6 +33,7 @@
 
     <!-- Hidden div to store data -->
     <div id="toto-data" th:data-toto="${totoNo}"></div>
+    <div id="task-data" th:data-task="${taskNo}"></div>
     <div id="status-data" th:data-status="${status}"></div>
 
     <div class="task_table_div">
@@ -64,7 +65,11 @@
                 <!-- Status 체크박스 -->
                 <td class="tr-taskicons">
                     <label class="checkbox_label">
-                        <input type="checkbox" class="task-checkbox" th:checked="${#strings.trim(task.status) == 'Y'}">
+                        <input type="checkbox" class="task-checkbox"
+                            th:checked="${#strings.trim(task.status) == 'Y'}"
+                            th:data-toto-no="${task.totoNo}"
+                            th:data-task-no="${task.taskNo}"
+                            onclick="updateTaskStatus(this)">
                         <span class="checkbox_icon"></span>
                     </label></td>
 

@@ -51,5 +51,5 @@ function submitTask() {
 }
 
 function cancelInput() {
-    alert(totoNm)
+    window.history.back();
 }

@@ -1,3 +1,36 @@
+// 체크박스 클릭 시 상태값 업데이트 처리
+function updateTaskStatus(element) {
+    const totoNo = element.getAttribute('data-toto-no');
+    const taskNo = element.getAttribute('data-task-no');
+    const newStatus = element.checked ? 'Y' : 'N'; // 체크 여부에 따라 상태 설정
+
+    const url = `/totos/${totoNo}/tasks/${taskNo}/status`
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            status: newStatus
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to update task status');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // 상태 업데이트 성공 후 알림 표시
+        console.log('Task status updated');
+    })
+    .catch(error => {
+        console.error('Error updating task status');
+    });
+}
+
+
 // 마우스 오버시 수정/삭제 버튼 표시
 document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
     const taskRow = item.closest('tr');
