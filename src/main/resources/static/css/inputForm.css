@@ -37,6 +37,7 @@ input:focus {
 
 button {
   margin-right: 10px;
+  cursor: pointer;
   float: right;
   border: none;
   background-color: white;

@@ -2,6 +2,11 @@ const inputBox = document.getElementById("inputBox");
 const warningMessage = document.getElementById("warningMessage");
 const totoNo = document.getElementById('toto-data').getAttribute('data-toto');
 const taskNo = document.getElementById('task-data').getAttribute('data-task');
+let formTitle = document.getElementById('inputTask-title');
+
+if (taskNo) {
+   formTitle.innerHTML = "할 일 수정하기"
+}
 
 // 초기 상태 설정
 inputBox.classList.remove('error');
