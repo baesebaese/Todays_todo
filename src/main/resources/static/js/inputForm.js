@@ -15,7 +15,7 @@ warningMessage.style.visibility = 'hidden';
 // input 중 자리수 초과시 알림
 inputBox.addEventListener('input', () => {
   inputValue = inputBox.value;
-  if (inputValue.length > 10) {
+  if (inputValue.length > 20) {
     inputBox.classList.add('error');
     warningMessage.style.visibility = 'visible';
   }
