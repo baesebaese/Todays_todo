@@ -46,10 +46,12 @@ function submitTask() {
         })
         .catch((error) => {
         //    console.error('Error:', error);
-        });
-
+        }
+    );
 }
 
 function cancelInput() {
-    window.history.back();
+    inputBox.value = '';
+    window.parent.postMessage('closeModal', '*');
 }
+

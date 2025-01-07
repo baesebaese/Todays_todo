@@ -30,8 +30,7 @@ function updateTaskStatus(element) {
     });
 }
 
-
-// 마우스 오버시 수정/삭제 버튼 표시
+// 태스크에 마우스 오버시 수정/삭제 버튼 표시
 document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
     const taskRow = item.closest('tr');
     const deleteTaskIcon = taskRow.querySelector('.tr-taskicons #delete-task-icon');
@@ -49,6 +48,19 @@ document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
 
     item.addEventListener('mouseover', showIcons);
     item.addEventListener('mouseout', hideIcons);
+});
+
+
+// 타이틀에 마우스를 올렸을 때 수정 버튼을 표시
+const title = document.getElementById('list-title-name');
+const editIcon = document.getElementById('edit-list-icon');
+
+title.addEventListener('mouseover', function() {
+    editIcon.style.visibility = 'visible';  // 버튼 표시
+});
+
+title.addEventListener('mouseout', function() {
+    editIcon.style.visibility = 'hidden';  // 버튼 숨김
 });
 
 

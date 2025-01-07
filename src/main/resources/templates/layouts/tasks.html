@@ -28,7 +28,12 @@
               th:data-toto-no="${totoNo}"
               onclick="deleteToto(this)">delete</span>
         <!-- 리스트 명 표시 -->
-        <h2>[[${totoNm}]]</h2>
+        <div class="list-title">
+            <span id="list-title-name">[[${totoNm}]]</span>
+            <span class="material-symbols-outlined"
+                  id="edit-list-icon"
+                  style="margin-left:12px; font-size:28px; visibility:hidden">edit</span></a></td>
+        </div>
     </div>
 
     <!-- Hidden div to store data -->

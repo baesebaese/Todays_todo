@@ -17,3 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+
+// 모달 열기
+document.getElementById("addTodoBtn").onclick = function() {
+    document.getElementById("todoModal").style.display = "block";
+}
+
+// 모달 밖 클릭 시 닫기
+window.onclick = function(event) {
+    if (event.target == document.getElementById("todoModal")) {
+        document.getElementById("todoModal").style.display = "none";
+    }
+}
+
+// 모달에서 'closeModal' 메시지를 받을 경우 모달창 닫기
+window.addEventListener('message', function(event) {
+    if (event.data === 'closeModal') {
+        document.getElementById("todoModal").style.display = "none";  // 모달 닫기
+    }
+});

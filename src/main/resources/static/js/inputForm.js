@@ -72,3 +72,4 @@ function submitTask() {
 function cancelInput() {
     window.history.back();
 }
+
