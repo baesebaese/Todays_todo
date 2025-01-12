@@ -35,5 +35,6 @@ window.onclick = function(event) {
 window.addEventListener('message', function(event) {
     if (event.data === 'closeModal') {
         document.getElementById("todoModal").style.display = "none";  // 모달 닫기
+        location.reload(); // 새로고침
     }
 });

@@ -38,10 +38,10 @@ function submitTask() {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                window.location.href = data.redirectUrl;  // 성공 시 리다이렉트
+                window.parent.postMessage('closeModal', '*')  // 성공 시 리다이렉트
             } else {
                 alert("저장에 실패했습니다.");
-                window.location.href = data.redirectUrl;  // 실패 시에도 해당 페이지로 리다이렉트
+                window.parent.postMessage('closeModal', '*')  // 실패 시에도 해당 페이지로 리다이렉트
             }
         })
         .catch((error) => {
@@ -50,7 +50,7 @@ function submitTask() {
     );
 }
 
-function cancelInput() {
+function closeModal() {
     inputBox.value = '';
     window.parent.postMessage('closeModal', '*');
 }
