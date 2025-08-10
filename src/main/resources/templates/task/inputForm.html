@@ -22,7 +22,7 @@
       <p class="modal_title" id="inputTask-title">할 일 추가하기</p>
       <div class="inputBoxArea">
         <input type="text" th:field="*{taskNm}" class="form-control" id="inputBox" maxlength="20" placeholder="할 일을 입력하세요" autofocus>
-        <p class="warning" id="warningMessage">입력한 내용이 20자를 초과했습니다.</p>
+        <p class="warning" id="warningMessage"></p>
       </div>
       <button type="submit" onclick="submitTask()">확인</button>
       <button type="button" onclick="cancelInput()">취소</button>

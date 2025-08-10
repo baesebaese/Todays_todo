@@ -5,11 +5,17 @@ const warningMessage = document.getElementById("warningMessage");
 inputBox.classList.remove('error');
 warningMessage.style.visibility = 'hidden';
 
-// input 중 자리수 초과시 알림
+// input 중 오류 시 알림
 inputBox.addEventListener('input', () => {
   inputValue = inputBox.value;
   if (inputValue.length > 20) {
     inputBox.classList.add('error');
+    warningMessage.textContent = '입력한 내용이 20자를 초과했습니다.';
+    warningMessage.style.visibility = 'visible';
+  }
+  else if (inputValue.length === 0) {
+    inputBox.classList.add('error');
+    warningMessage.textContent = '내용을 입력하세요.';
     warningMessage.style.visibility = 'visible';
   }
   else {
@@ -20,7 +26,17 @@ inputBox.addEventListener('input', () => {
 
 function submitTask() {
     event.preventDefault();  // 폼 기본 동작을 막음 (새로고침 방지)
-    const totoNm = inputBox.value;
+    const totoNm = inputBox.value.trim(); // 공백 제거
+    
+    // 빈값 체크 추가
+    if (!totoNm || totoNm.length === 0) {
+        inputBox.classList.add('error');
+        warningMessage.textContent = '내용을 입력하세요.';
+        warningMessage.style.visibility = 'visible';
+        inputBox.focus();
+        return; // 함수 종료
+    }
+    
     const submitValue =
         {
             "totoNm": totoNm

@@ -129,6 +129,11 @@
             </tbody>
         </table>
     </div>
+
+<div id="taskModal" class="modal">
+    <div class="modal-content">
+        <iframe id="taskIframe" th:src="@{/totos/{totoNo}/tasks/new(totoNo=${totoNo})}" style="width:100%; height:300px; border:none"></iframe>
+    </div>
 </div>
 
 </body>

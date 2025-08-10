@@ -17,6 +17,12 @@ inputBox.addEventListener('input', () => {
   inputValue = inputBox.value;
   if (inputValue.length > 20) {
     inputBox.classList.add('error');
+    warningMessage.textContent = '입력한 내용이 20자를 초과했습니다.';
+    warningMessage.style.visibility = 'visible';
+  }
+  else if (inputValue.length === 0) {
+    inputBox.classList.add('error');
+    warningMessage.textContent = '내용을 입력하세요.';
     warningMessage.style.visibility = 'visible';
   }
   else {
@@ -28,7 +34,16 @@ inputBox.addEventListener('input', () => {
 // 확인 클릭시 입력값을 제출
 function submitTask() {
     event.preventDefault();  // 폼 기본 동작을 막음 (새로고침 방지)
-    const taskNm = inputBox.value;
+    const taskNm = inputBox.value.trim(); // 공백 제거
+    
+    // 빈값 체크 추가
+    if (!taskNm || taskNm.length === 0) {
+        inputBox.classList.add('error');
+        warningMessage.textContent = '내용을 입력하세요.';
+        warningMessage.style.visibility = 'visible';
+        inputBox.focus();
+        return; // 함수 종료
+    }
 
     let submitValue = {};
     let url = '';
@@ -60,7 +75,8 @@ function submitTask() {
     })
         .then(response => {
             if(response.redirected) {
-                window.location.href = response.url;
+                window.parent.postMessage('closeModal', '*'); // 모달 닫기
+                // 부모 페이지 새로고침은 부모에서 처리
             }
 
         })
@@ -70,6 +86,6 @@ function submitTask() {
 }
 
 function cancelInput() {
-    window.history.back();
+    window.parent.postMessage('closeModal', '*'); // 모달 닫기
 }
 

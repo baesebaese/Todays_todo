@@ -130,3 +130,29 @@ function deleteToto(element) {
             alert('An error occurred while deleting the task.');
         });
 }
+
+// 모달 열기 - 신규 태스크 추가 버튼 클릭 시
+document.addEventListener('DOMContentLoaded', function() {
+    const addTaskBtn = document.getElementById('add-task');
+    if (addTaskBtn) {
+        addTaskBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // 기본 링크 동작 방지
+            document.getElementById("taskModal").style.display = "block";
+        });
+    }
+});
+
+// 모달 밖 클릭 시 닫기
+window.onclick = function(event) {
+    if (event.target == document.getElementById("taskModal")) {
+        document.getElementById("taskModal").style.display = "none";
+    }
+}
+
+// 모달에서 'closeModal' 메시지를 받을 경우 모달창 닫기
+window.addEventListener('message', function(event) {
+    if (event.data === 'closeModal') {
+        document.getElementById("taskModal").style.display = "none";  // 모달 닫기
+        location.reload(); // 새로고침
+    }
+});

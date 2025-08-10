@@ -10,7 +10,8 @@ body {
     height: auto;
     width: 500px;
     float: left;
-    }
+    position: relative;
+}
 
 h1 {
     font-size: 28px;
@@ -182,12 +183,28 @@ input[type='checkbox'] {
     background-color: transparent;
 }
 
+
+
 .modal {
     display: none;
-    position: fixed;
-    z-index: 1;
+    position: absolute;
+    z-index: 100;
     width: 100%;
     height: 100%;
     background-color: transparent;
     border: none;
+}
+
+.modal-content {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    padding: 0;
+    border: none;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 0;
+    box-shadow: none;
 }
