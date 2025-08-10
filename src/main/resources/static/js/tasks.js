@@ -52,14 +52,14 @@ document.querySelectorAll('.tr-tasknm, .tr-taskicons').forEach(item => {
 
 
 // 타이틀에 마우스를 올렸을 때 수정 버튼을 표시
-const title = document.getElementById('list-title-name');
+const titleContainer = document.querySelector('.list-title');
 const editIcon = document.getElementById('edit-list-icon');
 
-title.addEventListener('mouseover', function() {
+titleContainer.addEventListener('mouseover', function() {
     editIcon.style.visibility = 'visible';  // 버튼 표시
 });
 
-title.addEventListener('mouseout', function() {
+titleContainer.addEventListener('mouseout', function() {
     editIcon.style.visibility = 'hidden';  // 버튼 숨김
 });
 
@@ -137,10 +137,44 @@ document.addEventListener('DOMContentLoaded', function() {
     if (addTaskBtn) {
         addTaskBtn.addEventListener('click', function(e) {
             e.preventDefault(); // 기본 링크 동작 방지
-            document.getElementById("taskModal").style.display = "block";
+            openNewTaskModal();
         });
     }
 });
+
+// 신규 태스크 모달 열기
+function openNewTaskModal() {
+    const modal = document.getElementById("taskModal");
+    const iframe = document.getElementById("taskIframe");
+    const totoNo = document.getElementById('toto-data').getAttribute('data-toto');
+    
+    // 신규 태스크 추가 URL로 설정
+    iframe.src = `/totos/${totoNo}/tasks/new`;
+    modal.style.display = "block";
+}
+
+// 태스크 수정 모달 열기
+function openEditTaskModal(element) {
+    const modal = document.getElementById("taskModal");
+    const iframe = document.getElementById("taskIframe");
+    const totoNo = element.getAttribute('data-toto-no');
+    const taskNo = element.getAttribute('data-task-no');
+    
+    // 태스크 수정 URL로 설정
+    iframe.src = `/totos/${totoNo}/tasks/${taskNo}/edit`;
+    modal.style.display = "block";
+}
+
+// 리스트 제목 수정 모달 열기
+function openEditTotoModal(element) {
+    const modal = document.getElementById("taskModal");
+    const iframe = document.getElementById("taskIframe");
+    const totoNo = element.getAttribute('data-toto-no');
+    
+    // 리스트 제목 수정 URL로 설정
+    iframe.src = `/totos/${totoNo}/edit`;
+    modal.style.display = "block";
+}
 
 // 모달 밖 클릭 시 닫기
 window.onclick = function(event) {

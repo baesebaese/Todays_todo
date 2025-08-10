@@ -32,7 +32,9 @@
             <span id="list-title-name">[[${totoNm}]]</span>
             <span class="material-symbols-outlined"
                   id="edit-list-icon"
-                  style="margin-left:12px; font-size:28px; visibility:hidden">edit</span></a></td>
+                  style="margin-left:12px; font-size:28px; visibility:hidden; cursor: pointer;"
+                  th:data-toto-no="${totoNo}"
+                  onclick="openEditTotoModal(this)">edit</span>
         </div>
     </div>
 
@@ -83,12 +85,12 @@
 
                 <!-- 태스크 수정 버튼 -->
                 <td class="tr-taskicons">
-                    <a th:href="@{/totos/{totoNo}/tasks/{taskNo}/edit(totoNo=${totoNo},taskNo=${task.taskNo})}"
-                        id="edit-task"
-                        style="text-decoration: none;">
                     <span class="material-symbols-outlined"
                         id="edit-task-icon"
-                        style="margin-top:8px; visibility:hidden;">edit</span></a></td>
+                        style="margin-top:8px; visibility:hidden; cursor: pointer;"
+                        th:data-toto-no="${totoNo}"
+                        th:data-task-no="${task.taskNo}"
+                        onclick="openEditTaskModal(this)">edit</span></td>
                 <!-- 태스크 삭제 버튼 -->
                 <td class="tr-taskicons">
                     <span class="material-symbols-outlined"
